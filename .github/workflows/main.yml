@@ -20,6 +20,7 @@ jobs:
           REMOTE_USER: "ubuntu"
           TARGET: "/test"
       - name: Build on my ec-2
-        run: sudo docker-compose build --no-cache 
-      - name: Deploy to my ec-2
-        run: sudo docker-compose -f /test/docker-compose.yaml up -d
+        run: |
+          docker-compose build --no-cache
+          docker-compose up -d
+        shell: bash
