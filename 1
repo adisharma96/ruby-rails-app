@@ -1,0 +1,22 @@
+version: '3'
+services:
+  db:
+    container_name: db
+    image: postgres
+    environment:
+       POSTGRES_USER: postgres
+       POSTGRES_DB: db
+       PGPASSWORD: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  web:
+    build: .
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    
