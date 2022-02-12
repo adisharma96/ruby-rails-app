@@ -19,7 +19,5 @@ jobs:
           REMOTE_HOST: "ec2-3-71-184-212.eu-central-1.compute.amazonaws.com"
           REMOTE_USER: "ubuntu"
           TARGET: "/test"
-      #- name: Build Stack
         run: sudo docker-compose build --no-cache
-      #- name: Deploy application
         run: sudo docker-compose up -d
