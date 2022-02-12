@@ -17,7 +17,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           #SOURCE: "./"
           REMOTE_HOST: "ec2-3-71-184-212.eu-central-1.compute.amazonaws.com"
-          REMOTE_USER: $${{ secrets.REMOTE_USER }}
+          REMOTE_USER: ubuntu
           #TARGET: "/home/ec2-user/SampleExpressApp"
       - name: Build Stack
         run: sudo docker-compose build --no-cache
