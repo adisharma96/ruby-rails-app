@@ -22,4 +22,4 @@ jobs:
       - name: Build on my ec-2
         run: sudo docker-compose build --no-cache 
       - name: Deploy to my ec-2
-        run: sudo docker-compose -f /test/blog/docker-compose.yaml up -d
+        run: sudo docker-compose -f /test/docker-compose.yaml up -d
