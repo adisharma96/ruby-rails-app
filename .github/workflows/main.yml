@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the stack
-      - run: docker-compose build . --no-cache
+        run: docker-compose build  --no-cache
       - name: Deploy application
-      - run: docker-compose up -d
+        run: docker-compose up -d
