@@ -12,7 +12,7 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v1
       - name: Copy to my EC2 instance
-        uses: alex-ac/github-action-ssh-docker-compose@master
+        uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           #SOURCE: "./"
