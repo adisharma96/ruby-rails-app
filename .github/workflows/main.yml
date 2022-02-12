@@ -12,7 +12,7 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v1
       - name: Copy to my EC2 instance
-        uses: easingthemes/ssh-deploy@v2.1.5
+        uses: alex-ac/github-action-ssh-docker-compose@master
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           #SOURCE: "./"
@@ -20,7 +20,6 @@ jobs:
           REMOTE_USER: "ubuntu"
           TARGET: "/test"
       - name: Build on my ec-2
-        uses: alex-ac/github-action-ssh-docker-compose@master
         run: sudo docker-compose build --no-cache
       - name: Deploy to my ec-2
         run: sudo docker-compose up -d
