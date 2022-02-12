@@ -16,10 +16,10 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           #SOURCE: "./"
-          REMOTE_HOST: "ec2-18-192-121-1.eu-central-1.compute.amazonaws.com"
+          REMOTE_HOST: "ec2-3-71-184-212.eu-central-1.compute.amazonaws.com"
           REMOTE_USER: "ubuntu"
           #TARGET: "/home/ec2-user/SampleExpressApp"
       - name: Build Stack
-        run: docker-compose build --no-cache
+        run: sudo docker-compose build --no-cache
       - name: Deploy application
-        run: docker-compose up -d
+        run: sudo docker-compose up -d
