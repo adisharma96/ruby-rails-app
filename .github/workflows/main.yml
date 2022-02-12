@@ -13,3 +13,29 @@ jobs:
         run: docker-compose build  --no-cache
       - name: Deploy application
         run: docker-compose up -d
+
+name: Push-to-EC2
+on:
+  push: 
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  deploy:
+    name: Push to EC2 Instance
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v1
+      - name: Deploy to my EC2 instance
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          #SOURCE: "./"
+          REMOTE_HOST: "ec2-18-192-121-1.eu-central-1.compute.amazonaws.com"
+          REMOTE_USER: "ubuntu"
+          #TARGET: "/home/ec2-user/SampleExpressApp"
+      - name: Build Stack
+        run: docker-compose build --no-cache
+      - name: Deploy application
+        run: docker-compose up -d
