@@ -21,7 +21,6 @@ jobs:
           TARGET: "/test"
       - name: Build on my ec-2
         run: |
-           RUNNER_TRACKING_ID="" && docker-compose build --no-cache
-           RUNNER_TRACKING_ID="" && docker-compose up -d
-           RUNNER_TRACKING_ID="" && docker  
+           RUNNER_TRACKING_ID="" && sudo docker-compose build --no-cache
+           RUNNER_TRACKING_ID="" && sudo docker-compose up 
         shell: bash
