@@ -22,5 +22,6 @@ jobs:
       - name: Build on my ec-2
         run: |
            RUNNER_TRACKING_ID="" && sudo docker-compose build --no-cache
-           RUNNER_TRACKING_ID="" && sudo docker-compose up 
+           RUNNER_TRACKING_ID="" && sudo docker-compose up -d
+           sudo docker ps -a
         shell: bash
