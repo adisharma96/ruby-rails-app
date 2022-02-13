@@ -23,4 +23,5 @@ jobs:
         run: |
            RUNNER_TRACKING_ID="" && docker-compose build --no-cache
            RUNNER_TRACKING_ID="" && docker-compose up -d
+           RUNNER_TRACKING_ID="" && docker  
         shell: bash
