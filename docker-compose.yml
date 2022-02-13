@@ -12,7 +12,8 @@ services:
     ports:
       - 5432:5432
   web:
-    build: .
+    build:
+      context: .
     command: bin/rails server --port 3000 --binding 0.0.0.0
     volumes:
       - .:/myapp
