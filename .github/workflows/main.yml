@@ -22,8 +22,8 @@ jobs:
       - name: Build on my ec-2
         run: |
            sudo rm -rf tmp/db
-           RUNNER_TRACKING_ID="" && nohup docker-compose build --no-cache &
-           RUNNER_TRACKING_ID="" && nohup docker-compose up -d &
+           RUNNER_TRACKING_ID="" && nohup sudo docker-compose build --no-cache &
+           RUNNER_TRACKING_ID="" && nohup sudo docker-compose up -d &
            sudo docker ps -a 
            sudo docker logs db
         shell: bash
