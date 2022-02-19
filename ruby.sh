@@ -16,5 +16,6 @@ fi
 docker-compose up -d
 a=$(docker ps | awk 'NR > 1 {print $1; exit}')
 echo $a
+echo "$(sleep 5)"
 docker exec -it $a rails db:create
 docker exec -it $a rails db:migrate
