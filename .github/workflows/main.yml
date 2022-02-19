@@ -21,6 +21,7 @@ jobs:
           TARGET: "/home/ubuntu"
       - name: Build on my ec-2
         run: |
+          echo $PWD
           sudo rm -rf tmp/db
           RUNNER_TRACKING_ID="" && nohup sudo docker-compose build --no-cache
           sudo rm -rf tmp/pids/server.pid
@@ -28,5 +29,7 @@ jobs:
           sudo docker ps -a
           a=$(docker ps | awk 'NR > 1 {print $1; exit}')
           echo $a
+          sudo ifconfig -a
+          echo "$(sleep 4)"
           sudo docker exec $a rails db:create
           sudo docker exec $a rails db:migrate
