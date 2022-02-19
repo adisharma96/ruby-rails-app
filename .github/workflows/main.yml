@@ -28,5 +28,5 @@ jobs:
           sudo docker ps -a
           a=$(docker ps | awk 'NR > 1 {print $1; exit}')
           echo $a
-          sudo docker exec -it $a rails db:create
-          sudo docker exec -it $a rails db:migrate
+          sudo docker exec $a rails db:create
+          sudo docker exec $a rails db:migrate
